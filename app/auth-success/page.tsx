@@ -11,7 +11,7 @@ export default function AuthSuccessPage() {
   useEffect(() => {
     const callbackUrl = searchParams.get("callbackUrl") || "/";
 
-    toast.success("সফলভাবে Sign In হয়েছে! 🎉", {
+    toast.success("সফলভাবে Sign In হয়েছে! ", {
       id: "auth-success-toast",
       duration: 2000,
     });
