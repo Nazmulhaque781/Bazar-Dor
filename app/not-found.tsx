@@ -19,12 +19,6 @@ export default function NotFound() {
           পেজটি খুঁজে পাওয়া যায়নি
         </h2>
 
-        {/* Message */}
-        <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-gray-500 sm:text-base">
-          দুঃখিত! আপনি যে পেজটি খুঁজছেন সেটি পাওয়া যাচ্ছে না। লিংকটি ভুল হতে
-          পারে অথবা পেজটি সরিয়ে ফেলা হয়েছে।
-        </p>
-
         {/* Button */}
         <Link
           href="/"

@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 
 export default function AuthSuccessPage() {
   const router = useRouter();
+
   const searchParams = useSearchParams();
 
   useEffect(() => {
