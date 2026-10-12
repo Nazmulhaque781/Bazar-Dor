@@ -46,7 +46,7 @@ export default function SignInPage() {
       return;
     }
 
-    toast.success("সফলভাবে Sign In হয়েছে! 🎉", {
+    toast.success("সফলভাবে Sign In হয়েছে! ", {
       duration: 2000,
     });
 
