@@ -14,7 +14,7 @@ export default function SocialLoginToast() {
       return;
     }
 
-    toast.success("সফলভাবে Sign In হয়েছে! 🎉", {
+    toast.success("সফলভাবে Sign In হয়েছে! ", {
       id: "social-login-success",
       duration: 2000,
     });
