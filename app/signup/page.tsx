@@ -64,7 +64,7 @@ export default function SignUpPage() {
       return;
     }
 
-    toast.success("Account সফলভাবে তৈরি হয়েছে! 🎉", {
+    toast.success("Account সফলভাবে তৈরি হয়েছে! ", {
       duration: 2000,
     });
 
