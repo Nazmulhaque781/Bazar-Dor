@@ -16,6 +16,11 @@ export default function SignInPage() {
       ? new URLSearchParams(window.location.search).get("callbackUrl") || "/"
       : "/";
 
+  // Social Login Success Toast এর জন্য URL
+  const socialCallbackUrl = `${callbackUrl}${
+    callbackUrl.includes("?") ? "&" : "?"
+  }socialLogin=success`;
+
   // Email + Password Sign In
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,7 +65,7 @@ export default function SignInPage() {
 
     const { error } = await authClient.signIn.social({
       provider: "google",
-      callbackURL: callbackUrl,
+      callbackURL: socialCallbackUrl,
     });
 
     if (error) {
@@ -82,7 +87,7 @@ export default function SignInPage() {
 
     const { error } = await authClient.signIn.social({
       provider: "github",
-      callbackURL: callbackUrl,
+      callbackURL: socialCallbackUrl,
     });
 
     if (error) {
@@ -109,7 +114,7 @@ export default function SignInPage() {
           </p>
         </div>
 
-        {/* Email & Password Sign In */}
+        {/* Email & Password */}
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email */}
           <div>
@@ -165,7 +170,7 @@ export default function SignInPage() {
             </p>
           )}
 
-          {/* Sign In Button */}
+          {/* Sign In */}
           <button
             type="submit"
             className="w-full rounded-lg bg-green-600 py-3 font-semibold text-white transition hover:bg-green-700"
@@ -174,7 +179,7 @@ export default function SignInPage() {
           </button>
         </form>
 
-        {/* OR Divider */}
+        {/* Divider */}
         <div className="my-5 flex items-center gap-3">
           <div className="h-px flex-1 bg-gray-200" />
 
@@ -240,7 +245,7 @@ export default function SignInPage() {
           </button>
         </div>
 
-        {/* Sign Up Link */}
+        {/* Sign Up */}
         <p className="mt-6 text-center text-sm text-gray-600">
           অ্যাকাউন্ট নেই?{" "}
           <Link
@@ -251,7 +256,7 @@ export default function SignInPage() {
           </Link>
         </p>
 
-        {/* Back to Home */}
+        {/* Back Home */}
         <div className="mt-5 text-center">
           <Link
             href="/"

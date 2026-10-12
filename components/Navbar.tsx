@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { headers } from "next/headers";
+import { connection } from "next/server";
 
 import { getProducts } from "@/lib/api";
 import { auth } from "@/lib/auth";
@@ -9,6 +10,8 @@ import UserMenu from "@/components/UserMenu";
 export const instant = false;
 
 export default async function Navbar() {
+  await connection();
+
   const products = await getProducts();
 
   const session = await auth.api.getSession({

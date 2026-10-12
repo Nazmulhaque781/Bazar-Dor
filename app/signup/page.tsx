@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
 
 export default function SignUpPage() {
@@ -11,6 +12,9 @@ export default function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
+
+  // Google/GitHub signup এর পর Home এ গিয়ে success toast দেখানোর জন্য
+  const socialCallbackUrl = "/?socialLogin=success";
 
   // Email + Password Sign Up
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -22,12 +26,22 @@ export default function SignUpPage() {
     if (password.length < 6) {
       setMessage("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে!");
       setError(true);
+
+      toast.error("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে!", {
+        duration: 3000,
+      });
+
       return;
     }
 
     if (password !== confirmPassword) {
       setMessage("দুটি পাসওয়ার্ড মিলছে না!");
       setError(true);
+
+      toast.error("দুটি পাসওয়ার্ড মিলছে না!", {
+        duration: 3000,
+      });
+
       return;
     }
 
@@ -42,15 +56,24 @@ export default function SignUpPage() {
 
       setMessage(error.message || "Account তৈরি করা যায়নি!");
       setError(true);
+
+      toast.error("Account তৈরি করা যায়নি!", {
+        duration: 3000,
+      });
+
       return;
     }
+
+    toast.success("Account সফলভাবে তৈরি হয়েছে! 🎉", {
+      duration: 2000,
+    });
 
     setMessage("Account সফলভাবে তৈরি হয়েছে!");
     setError(false);
 
     setTimeout(() => {
       window.location.href = "/signin";
-    }, 1000);
+    }, 800);
   }
 
   // Google Sign Up
@@ -60,7 +83,7 @@ export default function SignUpPage() {
 
     const { error } = await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/",
+      callbackURL: socialCallbackUrl,
     });
 
     if (error) {
@@ -68,6 +91,10 @@ export default function SignUpPage() {
 
       setMessage(error.message || "Google দিয়ে Sign Up করা যায়নি!");
       setError(true);
+
+      toast.error("Google দিয়ে Sign Up করা যায়নি!", {
+        duration: 3000,
+      });
     }
   }
 
@@ -78,7 +105,7 @@ export default function SignUpPage() {
 
     const { error } = await authClient.signIn.social({
       provider: "github",
-      callbackURL: "/",
+      callbackURL: socialCallbackUrl,
     });
 
     if (error) {
@@ -86,6 +113,10 @@ export default function SignUpPage() {
 
       setMessage(error.message || "GitHub দিয়ে Sign Up করা যায়নি!");
       setError(true);
+
+      toast.error("GitHub দিয়ে Sign Up করা যায়নি!", {
+        duration: 3000,
+      });
     }
   }
 
@@ -271,7 +302,7 @@ export default function SignUpPage() {
               className="h-5 w-5 shrink-0 fill-current"
               aria-hidden="true"
             >
-              <path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2.1c-3.4.7-4.1-1.4-4.1-1.4-.5-1.3-1.2-1.6-1.2-1.6-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.1 0-1.4.5-2.5 1.2-3.4-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.4 12.4 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.3 3 .2 3.3.8.9 1.2 2 1.2 3.4 0 4.7-2.8 5.8-5.5 6.1.4.4.7 1 .7 2v3c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9Z" />
+              <path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2.1c-3.4.7-4.1-1.4-4.1-1.4-.5-1.3-1.2-1.6-1.2-1.6-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.2 1.2 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.1 0-1.4.5-2.5 1.2-3.4-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.6 1.3a12.4 12.4 0 0 1 6.6 0c2.5-1.6 3.6-1.3 3.6-1.3.7 1.7.3 3 .2 3.3.8.9 1.2 2 1.2 3.4 0 4.7-2.8 5.8-5.5 6.1.4.4.7 1 .7 2v3c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9Z" />
             </svg>
 
             <span>GitHub দিয়ে চালিয়ে যান</span>
