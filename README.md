@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর (BazarDor)
 
-## Getting Started
+**বাজার দর (BazarDor)** হলো একটি আধুনিক বাজারদর ওয়েব অ্যাপ্লিকেশন, যেখানে ব্যবহারকারীরা প্রয়োজনীয় পণ্যের বর্তমান বাজার মূল্য, দাম বৃদ্ধির/কমার তথ্য এবং বিভিন্ন বাজারের মূল্য তুলনা করতে পারে।
 
-First, run the development server:
+## 🚀 Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js 16** — React-based full-stack framework
+- **TypeScript** — Type-safe development
+- **Tailwind CSS** — Responsive and modern UI design
+- **Better Auth** — User authentication
+- **MongoDB** — User data and authentication database
+- **REST API** — Product and market price data
+- **React Hot Toast** — Success and error notifications
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. 📊 Current Market Prices
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ব্যবহারকারীরা বিভিন্ন প্রয়োজনীয় পণ্যের আজকের বাজার মূল্য দেখতে পারে এবং গতকালের তুলনায় দাম বেড়েছে নাকি কমেছে তা জানতে পারে।
 
-## Learn More
+### 2. 🗂️ Category-wise Products
 
-To learn more about Next.js, take a look at the following resources:
+পণ্যগুলো বিভিন্ন category অনুযায়ী দেখা যায়, যেমন:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🍚 চাল
+- 🫘 ডাল
+- 🛢️ তেল
+- 🥬 সবজি
+- 🐟 মাছ
+- 🍗 মাংস
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. 🔍 Product Details & Market Comparison
 
-## Deploy on Vercel
+প্রতিটি পণ্যের বিস্তারিত page-এ:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- বর্তমান দাম
+- সর্বনিম্ন দাম
+- সর্বোচ্চ দাম
+- গড় দাম
+- বিভিন্ন বাজারের দাম
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+দেখা যায়।
+
+### 4. 🔐 User Authentication
+
+ব্যবহারকারীরা **Sign Up** এবং **Sign In** করতে পারে। Authentication-এর জন্য **Better Auth** এবং **MongoDB** ব্যবহার করা হয়েছে।
+
+### 5. 📈 Price Sorting & Price Trends
+
+Category page-এ পণ্যগুলো:
+
+- ডিফল্ট order
+- দাম: কম থেকে বেশি
+- দাম: বেশি থেকে কম
+
+এইভাবে সাজানো যায়। পাশাপাশি কোন পণ্যের দাম বেড়েছে বা কমেছে সেটিও সহজে বোঝা যায়।
+
+## 📱 Responsive Design
+
+BazarDor responsiveভাবে তৈরি করা হয়েছে, তাই এটি:
+
+- 💻 Desktop
+- 📱 Mobile
+- 📟 Tablet
+
+সব ধরনের screen-এ ব্যবহার করা যায়।
+
+## 🎯 Project Goal
+
+BazarDor-এর মূল লক্ষ্য হলো প্রয়োজনীয় পণ্যের বাজারদরকে একটি সহজ, সুন্দর এবং user-friendly interface-এর মাধ্যমে ব্যবহারকারীদের সামনে তুলে ধরা।
